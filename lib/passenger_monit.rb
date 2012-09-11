@@ -5,6 +5,9 @@ module PassengerMonit
   
   mattr_accessor :pid_file
   @@pid_file = 'passenger.*.pid'
+  if ENV['application_name']
+    @@pid_file = "#{ENV['application_name']}_passenger.*.pid"
+  end
   
   class Railtie < Rails::Railtie
     config.before_initialize do
