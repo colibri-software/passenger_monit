@@ -1,10 +1,10 @@
 module PassengerMonit
   
   mattr_accessor :pid_dir
-  @@pid_dir = '/var/tmp'
+  @@pid_dir = '/var/run'
   
   mattr_accessor :pid_file
-  @@pid_file = 'rack.*.pid'
+  @@pid_file = 'passenger.*.pid'
   
   class Railtie < Rails::Railtie
     config.before_initialize do
